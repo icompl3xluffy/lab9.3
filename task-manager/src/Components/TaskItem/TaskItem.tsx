@@ -2,7 +2,7 @@ import type { TaskItemProps, TaskStatus } from '../../types';
 
 
 
-export function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
+export default function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
 
     return (
         <div >

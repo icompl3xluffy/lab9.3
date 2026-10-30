@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { TaskFilterProps, TaskStatus, TaskPriority } from '../../types';
 
-export function TaskFilter({ onFilterChange }: TaskFilterProps){
+function TaskFilter({ onFilterChange }: TaskFilterProps){
 const [status, setStatus] = useState<TaskStatus | ''>('');
   const [priority, setPriority] = useState<TaskPriority | ''>('');
 
@@ -36,3 +36,5 @@ const [status, setStatus] = useState<TaskStatus | ''>('');
       </div>
   );
 }
+
+export default TaskFilter;

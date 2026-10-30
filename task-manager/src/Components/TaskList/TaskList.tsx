@@ -1,7 +1,7 @@
 import type { TaskListProps } from '../../types';
 import TaskItem from '../TaskItem/TaskItem';
 
-function TaskList({ tasks, onStatusChange, onDelete }: TaskListProps) {
+export default function TaskList({ tasks, onStatusChange, onDelete }: TaskListProps) {
   if (tasks.length === 0) {
     return <p className="empty">No tasks found.</p>;
   }
@@ -20,4 +20,3 @@ function TaskList({ tasks, onStatusChange, onDelete }: TaskListProps) {
   );
 }
 
-export default TaskList;
