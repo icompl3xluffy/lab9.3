@@ -2,19 +2,21 @@ import { useState } from 'react';
 import type { TaskFilterProps, TaskStatus, TaskPriority } from '../../types';
 
 export function TaskFilter({ onFilterChange }: TaskFilterProps){
-const handleStatus = (value: TaskStatus | '') => {
+const [status, setStatus] = useState<TaskStatus | ''>('');
+  const [priority, setPriority] = useState<TaskPriority | ''>('');
+
+    const handleStatus = (value: TaskStatus | '') => {
     setStatus(value);
-    onFilterChange({ status: value || null, priority: priority || null });
+    onFilterChange({ status: value || undefined, priority: priority || undefined });
   };
 
   const handlePriority = (value: TaskPriority | '') => {
     setPriority(value);
-    onFilterChange({ status: status ||null, priority: value || null });
+    onFilterChange({ status: status ||undefined, priority: value || undefined });
   };
     return (
        <div className="task-filter">
-      <label>
-        Status
+      <label>Status
         <select value={status} onChange={(e) => handleStatus(e.target.value as TaskStatus | '')}>
           <option value="">All Statuses</option>
           <option value="pending">Pending</option>
@@ -23,14 +25,14 @@ const handleStatus = (value: TaskStatus | '') => {
         </select>
       </label>
 
-      <label>
-        Priority
+      <label>Priority
         <select value={priority} onChange={(e) => handlePriority(e.target.value as TaskPriority | '')}>
           <option value="">All Priorities</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-      </label>
-    )
+        </label>
+      </div>
+  );
 }
